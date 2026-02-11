@@ -44,7 +44,7 @@ function generateHeartPoints(numPoints = 1000) {
 // Animation variables
 let currentPoint = 0;
 const points = generateHeartPoints(1000);
-let animationSpeed = 2; // points to draw per frame
+let pointsPerFrame = 2; // number of points to draw per frame
 
 // Draw function with animation
 function drawHeart() {
@@ -77,7 +77,7 @@ function drawHeart() {
         
         ctx.stroke();
         
-        currentPoint += animationSpeed;
+        currentPoint = Math.floor(currentPoint + pointsPerFrame);
         
         // Continue animation
         requestAnimationFrame(drawHeart);
