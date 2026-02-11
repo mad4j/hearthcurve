@@ -50,7 +50,8 @@ function drawHeart() {
     // Draw next segment
     if (currentPoint < points.length) {
         // Append only new points to path data
-        for (let i = currentPoint; i < Math.min(currentPoint + pointsPerFrame, points.length); i++) {
+        const endPoint = Math.min(currentPoint + pointsPerFrame, points.length);
+        for (let i = currentPoint; i < endPoint; i++) {
             const point = points[i];
             
             // Transform coordinates to SVG space
@@ -66,7 +67,7 @@ function drawHeart() {
         
         pathElement.setAttribute('d', pathData);
         
-        currentPoint = Math.floor(currentPoint + pointsPerFrame);
+        currentPoint = endPoint;
         
         // Continue animation
         requestAnimationFrame(drawHeart);
