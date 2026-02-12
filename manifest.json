@@ -1,11 +1,11 @@
 {
-  "name": "I Love You - Heart Curve",
-  "short_name": "I ♥ You",
+  "name": "Heart Curve",
+  "short_name": "♥ Curve",
   "description": "Visualizzazione animata della curva del cuore per San Valentino",
   "start_url": "./index.html",
   "display": "fullscreen",
   "background_color": "#ffffff",
-  "theme_color": "#ff0000",
+  "theme_color": "#770000",
   "orientation": "any",
   "scope": "./",
   "icons": [
