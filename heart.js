@@ -167,6 +167,9 @@ function updateValentineCountdown() {
 updateValentineCountdown();
 
 // Pull-to-refresh functionality
+const PULL_TO_REFRESH_START_THRESHOLD = 50; // Maximum Y position to start gesture
+const PULL_TO_REFRESH_DISTANCE_THRESHOLD = 100; // Minimum pull distance to trigger reload
+
 let touchStartY = 0;
 let touchEndY = 0;
 
@@ -179,8 +182,12 @@ document.addEventListener('touchmove', (e) => {
 }, { passive: true });
 
 document.addEventListener('touchend', () => {
-    // Check if user pulled down from the top
-    if (touchStartY < 50 && touchEndY - touchStartY > 100) {
+    // Check if page is at the top and user pulled down from near the top
+    const isAtTop = window.scrollY === 0 || document.documentElement.scrollTop === 0;
+    const isPullDownGesture = touchStartY < PULL_TO_REFRESH_START_THRESHOLD && 
+                               touchEndY - touchStartY > PULL_TO_REFRESH_DISTANCE_THRESHOLD;
+    
+    if (isAtTop && isPullDownGesture) {
         // Reload the page
         window.location.reload();
     }
