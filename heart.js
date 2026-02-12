@@ -141,13 +141,18 @@ function updateValentineCountdown() {
     
     // Update the countdown element
     const countdownElement = document.getElementById('countdown');
+    countdownElement.textContent = daysRemaining;
+    
+    // Set aria-label for accessibility
+    let ariaLabel;
     if (daysRemaining === 0) {
-        countdownElement.textContent = 'Buon San Valentino!';
+        ariaLabel = 'Buon San Valentino!';
     } else if (daysRemaining === 1) {
-        countdownElement.textContent = '1 giorno a San Valentino';
+        ariaLabel = '1 giorno a San Valentino';
     } else {
-        countdownElement.textContent = `${daysRemaining} giorni a San Valentino`;
+        ariaLabel = `${daysRemaining} giorni a San Valentino`;
     }
+    countdownElement.setAttribute('aria-label', ariaLabel);
 }
 
 // Update countdown on page load
