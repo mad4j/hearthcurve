@@ -165,3 +165,23 @@ function updateValentineCountdown() {
 
 // Update countdown on page load
 updateValentineCountdown();
+
+// Pull-to-refresh functionality
+let touchStartY = 0;
+let touchEndY = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener('touchmove', (e) => {
+    touchEndY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener('touchend', () => {
+    // Check if user pulled down from the top
+    if (touchStartY < 50 && touchEndY - touchStartY > 100) {
+        // Reload the page
+        window.location.reload();
+    }
+}, { passive: true });
