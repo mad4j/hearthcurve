@@ -59,7 +59,7 @@ let animationId = null; // To track animation frame
 
 // Create SVG path element
 const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-pathElement.setAttribute('stroke', '#ff0000'); // Red color
+pathElement.setAttribute('stroke', '#666666'); // Gray color
 pathElement.setAttribute('stroke-linecap', 'round');
 pathElement.setAttribute('stroke-linejoin', 'round');
 pathElement.setAttribute('fill', 'none');
@@ -125,46 +125,6 @@ pathElement.setAttribute('stroke-width', strokeWidth);
 
 // Start the animation
 drawHeart();
-
-// Calculate days until Valentine's Day
-function updateValentineCountdown() {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset to midnight for accurate day comparison
-    const currentYear = today.getFullYear();
-    
-    // Valentine's Day is February 14
-    let valentineDay = new Date(currentYear, 1, 14); // Month is 0-indexed, so 1 = February
-    valentineDay.setHours(0, 0, 0, 0);
-    
-    // If Valentine's Day has passed this year, calculate for next year
-    if (today > valentineDay) {
-        valentineDay.setFullYear(currentYear + 1);
-    }
-    
-    // Calculate the difference in milliseconds
-    const diffTime = valentineDay - today;
-    
-    // Convert to days
-    const daysRemaining = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    
-    // Update the countdown element
-    const countdownElement = document.getElementById('countdown');
-    countdownElement.textContent = daysRemaining;
-    
-    // Set aria-label for accessibility
-    let ariaLabel;
-    if (daysRemaining === 0) {
-        ariaLabel = 'Buon San Valentino!';
-    } else if (daysRemaining === 1) {
-        ariaLabel = '1 giorno a San Valentino';
-    } else {
-        ariaLabel = `${daysRemaining} giorni a San Valentino`;
-    }
-    countdownElement.setAttribute('aria-label', ariaLabel);
-}
-
-// Update countdown on page load
-updateValentineCountdown();
 
 // Pull-to-refresh functionality
 const PULL_TO_REFRESH_START_THRESHOLD = 50; // Maximum Y position to start gesture
