@@ -1,6 +1,6 @@
 {
   "name": "Heart Curve",
-  "short_name": "♥ Curve",
+  "short_name": "Heart Curve",
   "description": "Visualizzazione animata della curva del cuore per San Valentino",
   "start_url": "./index.html",
   "display": "fullscreen",
@@ -10,9 +10,9 @@
   "scope": "./",
   "icons": [
     {
-      "src": "favicon.svg",
+      "src": "favicon.png",
       "sizes": "any",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
