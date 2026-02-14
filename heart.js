@@ -31,7 +31,7 @@ function triggerVisualHaptic() {
     // Force reflow so the animation can retrigger
     void svg.offsetWidth;
     svg.classList.add('haptic-shake');
-    window.setTimeout(() => svg.classList.remove('haptic-shake'), 300);
+    window.setTimeout(() => svg.classList.remove('haptic-shake'), 220);
 }
 
 // Enable haptics after any user gesture
